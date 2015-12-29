@@ -1,0 +1,11 @@
+<h1>Blogs </h1>
+
+<% @blogs.each do |blog| %>
+  <div>
+    <div class="blog">
+      <div class="name">
+    <%= link_to blog.name, blog %>
+  </div>
+    <div class="url"><%= link_to blog.url, blog.url %></div>
+  </div>
+<% end %>
