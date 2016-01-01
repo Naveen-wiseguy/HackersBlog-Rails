@@ -5,3 +5,4 @@
   <div class="subtext"> Published <%= time_ago_in_words(article.published) unless article.published.blank? %> ago | <%= article.views %> views </div>
 </div>
 <% end %>
+<%= will_paginate @articles %>
