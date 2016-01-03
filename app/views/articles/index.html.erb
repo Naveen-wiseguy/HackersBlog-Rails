@@ -1,7 +1,7 @@
-<h1>HackersBlog</h1>
+
 <% @articles.each do |article| %>
   <div class="article">
-  <%= link_to article.title, article %> <span class="site">from <%= link_to article.blog.name,article.blog.url %> </span>
+  <%= link_to article.title, article, data: {no_turbolink: true} %> <span class="site">from <%= link_to article.blog.name,article.blog.url, data: {no_turbolink: true} %> </span>
   <div class="subtext"> Published <%= time_ago_in_words(article.published) unless article.published.blank? %> ago | <%= article.views %> views </div>
 </div>
 <% end %>

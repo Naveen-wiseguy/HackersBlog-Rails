@@ -1,4 +1,4 @@
-<h1>Blogs </h1>
+
 
 <% @blogs.each do |blog| %>
   <div>
@@ -6,6 +6,6 @@
       <div class="name">
     <%= link_to blog.name, blog %>
   </div>
-    <div class="url"><%= link_to blog.url, blog.url %></div>
+    <div class="url"><%= link_to blog.url, blog.url, data: {no_turbolink: true} %></div>
   </div>
 <% end %>
