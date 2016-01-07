@@ -6,5 +6,6 @@ class Api::V1::BlogsController < Api::V1::BaseController
   def show
     @blog=Blog.find(params[:id])
     @articles=@blog.articles.order(views: :desc,published: :desc)
+    render(json: @blog , serializer: Api::V1::BlogsSerializer)
   end
 end
