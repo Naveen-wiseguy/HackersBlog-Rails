@@ -59,7 +59,7 @@ end
           if(item.title.nil?)
             next
           end
-          if(!last_item.nil?&&item.title==last_item[0].title)
+          if(!last_item.empty?&&item.title==last_item[0].title)
             break
           end
             article=blog.articles.new
