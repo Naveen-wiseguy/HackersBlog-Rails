@@ -56,6 +56,9 @@ end
       feeds=parse_feed(blog.feed_url,log)
       if(!feeds.nil?)
         feeds.entries.each do |item|
+          if(item.nil?)
+            break
+          end
           if(!last_item.nil?&&item.title==last_item[0].title)
             break
           end
