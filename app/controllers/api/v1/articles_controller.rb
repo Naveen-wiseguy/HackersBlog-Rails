@@ -1,6 +1,10 @@
 class Api::V1::ArticlesController < Api::V1::BaseController
   def index
-    @articles=Article.order(views: :desc,published: :desc)
+    if params[:search]
+      @articles=Article.title_has(params[:search]).order(views: :desc,published: :desc)
+    else
+      @articles=Article.order(views: :desc,published: :desc)
+    end
     render(json: @articles, each_serializer: Api::V1::ArticlesSerializer)
   end
 
