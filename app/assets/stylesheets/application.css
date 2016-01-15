@@ -79,6 +79,7 @@ body{
 }
 
 .pagination{
+  display:block;
   background-color: #f6f6ef;
   width:80%;
   margin:auto;
