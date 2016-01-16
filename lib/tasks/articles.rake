@@ -36,15 +36,7 @@ end
             article.url=item.url
             article.published=item.published
             article.views=0
-            if Rails.env.production? && !article.published.nil?
             article.save
-            if Blog.count+Article.count >10000
-              last=Article.order("published ASC NULLS FIRST").first
-              last.delete
-            end
-          elsif !Rails.env.production?
-              article.save
-          end
           end
         end
       end
@@ -75,7 +67,15 @@ end
             article.url=item.url
             article.published=item.published
             article.views=0
+            if Rails.env.production? && !article.published.nil?
             article.save
+            if Blog.count+Article.count >10000
+              last=Article.order("published ASC NULLS FIRST").first
+              last.delete
+            end
+          elsif !Rails.env.production?
+              article.save
+          end
         end
       end
     end
