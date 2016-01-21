@@ -69,7 +69,7 @@ end
             article.views=0
             if Rails.env.production? && !article.published.nil?
             article.save
-            if Blog.count+Article.count >10000
+            if Blog.count+Article.count >9996
               last=Article.order("published ASC NULLS FIRST").first
               last.delete
             end
