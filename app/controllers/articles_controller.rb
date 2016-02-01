@@ -2,15 +2,15 @@ class ArticlesController < ApplicationController
   def index
     if Rails.env.production?
     if params[:search]
-      @articles=Article.title_has(params[:search]).order("views DESC","published DESC NULLS LAST").page(params[:page])
+      @articles=Article.title_has(params[:search]).order("updated_at DESC","views DESC","published DESC NULLS LAST").page(params[:page])
     else
-      @articles=Article.order("views DESC","published DESC NULLS LAST").page(params[:page])
+      @articles=Article.order("updated_at DESC","views DESC","published DESC NULLS LAST").page(params[:page])
     end
   else
     if params[:search]
-      @articles=Article.title_has(params[:search]).order("views DESC","published DESC").page(params[:page])
+      @articles=Article.title_has(params[:search]).order("updated_at DESC","views DESC","published DESC").page(params[:page])
     else
-      @articles=Article.order("views DESC","published DESC").page(params[:page])
+      @articles=Article.order("updated_at DESC","views DESC","published DESC").page(params[:page])
     end
   end
   end
